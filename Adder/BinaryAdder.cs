@@ -79,6 +79,74 @@ namespace Adder
             }
             return boolListOneAddTwo;
         }
+        public List<bool> AndAddBinary(List<bool> BinaryListOne, List<bool> BinaryListTwo)
+        {
+            List<bool> boolListOneAddTwo = new List<bool>(32);
+            boolListOneAddTwo.AddRange(new bool[32]);
+            
+            for (int index = 31; index >= 0; index--)
+            {
+                int boolTrueCounter = 0;
+                if (BinaryListOne[index] == true)
+                {
+                    boolTrueCounter += 1;
+                }
+                if (BinaryListTwo[index] == true)
+                {
+                    boolTrueCounter += 1;
+                }
+                switch (boolTrueCounter)
+                {
+                    case 0:
+                        boolListOneAddTwo[index] = false;
+                        break;
+                    case 1:
+                        boolListOneAddTwo[index] = false;
+                        break;
+                    case 2:
+                        boolListOneAddTwo[index] = true;
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+            return boolListOneAddTwo;
+        }
+        public List<bool> OrAddBinary(List<bool> BinaryListOne, List<bool> BinaryListTwo)
+        {
+            List<bool> boolListOneAddTwo = new List<bool>(32);
+            boolListOneAddTwo.AddRange(new bool[32]);
+
+            for (int index = 31; index >= 0; index--)
+            {
+                int boolTrueCounter = 0;
+                if (BinaryListOne[index] == true)
+                {
+                    boolTrueCounter += 1;
+                }
+                if (BinaryListTwo[index] == true)
+                {
+                    boolTrueCounter += 1;
+                }
+                switch (boolTrueCounter)
+                {
+                    case 0:
+                        boolListOneAddTwo[index] = false;
+                        break;
+                    case 1:
+                        boolListOneAddTwo[index] = true;
+                        break;
+                    case 2:
+                        boolListOneAddTwo[index] = true;
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+            return boolListOneAddTwo;
+        }
         public void PrintBoolList(List<bool> BoolList)
         {
             for (int index = 0; index <= 31; index++)
@@ -93,6 +161,7 @@ namespace Adder
                     Console.Write("1");
                 }
             }
+            Console.WriteLine();
         }
 
         public int ConvertBinaryToInt(List<bool> BinaryList)
@@ -112,6 +181,10 @@ namespace Adder
                 }
             }
             return convertedInt;
+        }
+        public void WriteInt(int Int)
+        {
+            Console.WriteLine(Int);
         }
     }
 }
